@@ -83,7 +83,7 @@ function Index() {
           <div className="absolute -bottom-32 -left-32 h-[500px] w-[500px] rounded-full bg-mint/20 blur-3xl" />
         </div>
 
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-12 pb-20 lg:pt-20 lg:pb-32">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-6 pb-20 lg:pt-20 lg:pb-32">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div>
               <div className="inline-flex items-center gap-2 rounded-full border border-brand/20 bg-white/70 backdrop-blur px-3 py-1.5 text-xs font-medium text-brand shadow-sm">
