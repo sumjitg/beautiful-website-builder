@@ -28,9 +28,11 @@ export function Navbar() {
       <header
         className={cn(
           "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-          scrolled || open
-            ? "backdrop-blur-xl bg-background/90 border-b border-border shadow-sm"
-            : "bg-transparent",
+          open
+            ? "bg-background border-b border-border shadow-xl"
+            : scrolled
+              ? "backdrop-blur-xl bg-background/90 border-b border-border shadow-sm"
+              : "bg-transparent",
         )}
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -91,8 +93,8 @@ export function Navbar() {
           {/* MOBILE MENU */}
           <div
             className={cn(
-              "lg:hidden overflow-hidden transition-all duration-300 ease-in-out",
-              open ? "max-h-[80vh] opacity-100 pb-8" : "max-h-0 opacity-0",
+              "lg:hidden overflow-hidden transition-all duration-300 ease-in-out bg-background",
+              open ? "max-h-[90vh] opacity-100 pb-8 border-t border-border mt-1" : "max-h-0 opacity-0",
             )}
           >
             <div className="pt-4 pb-6 space-y-6">
@@ -131,7 +133,7 @@ export function Navbar() {
       {/* Overlay to close menu when clicking outside */}
       {open && (
         <div
-          className="fixed inset-0 z-40 bg-black/20 backdrop-blur-sm lg:hidden"
+          className="fixed inset-0 z-40 bg-black/50 backdrop-blur-sm lg:hidden"
           onClick={() => setOpen(false)}
         />
       )}
