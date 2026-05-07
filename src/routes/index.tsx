@@ -114,17 +114,17 @@ function Index() {
                 </Button>
               </div>
 
-              <div className="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-6 max-w-lg">
+              <div className="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 max-w-lg">
                 {stats.map((s) => (
                   <div key={s.label}>
                     <div className="font-display text-2xl sm:text-3xl font-semibold text-foreground">{s.value}</div>
-                    <div className="text-xs text-muted-foreground mt-1">{s.label}</div>
+                    <div className="text-[10px] sm:text-xs text-muted-foreground mt-1">{s.label}</div>
                   </div>
                 ))}
               </div>
             </div>
 
-            <div className="relative">
+            <div className="relative mt-12 lg:mt-0">
               <div className="absolute -inset-4 bg-gradient-to-br from-brand/30 to-mint/30 rounded-[2rem] blur-2xl opacity-60" />
               <div className="relative rounded-[2rem] overflow-hidden shadow-[var(--shadow-elegant)] border border-white/40">
                 <img
@@ -132,25 +132,26 @@ function Index() {
                   alt="Modern medical clinic interior with stethoscope on wooden desk"
                   width={1536}
                   height={1024}
-                  className="w-full h-[420px] sm:h-[520px] object-cover"
+                  className="w-full h-[300px] xs:h-[400px] sm:h-[520px] object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-foreground/40 via-transparent to-transparent" />
               </div>
 
-              <div className="absolute -bottom-6 -left-4 sm:-left-8 max-w-xs rounded-2xl bg-card border border-border shadow-[var(--shadow-soft)] p-4 backdrop-blur">
-                <div className="flex items-center gap-2">
+              {/* Badges - Hidden on very small screens to avoid 'messy' layout */}
+              <div className="hidden xs:block absolute -bottom-6 -left-4 sm:-left-8 max-w-[200px] sm:max-w-xs rounded-2xl bg-card border border-border shadow-[var(--shadow-soft)] p-3 sm:p-4 backdrop-blur">
+                <div className="flex items-center gap-1.5 sm:gap-2">
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-4 w-4 fill-gold text-gold" />
+                    <Star key={i} className="h-3 w-3 sm:h-4 sm:w-4 fill-gold text-gold" />
                   ))}
-                  <span className="text-sm font-semibold ml-1">5.0</span>
+                  <span className="text-xs sm:text-sm font-semibold ml-1">5.0</span>
                 </div>
-                <p className="text-xs text-muted-foreground mt-1.5 leading-relaxed">
+                <p className="text-[10px] sm:text-xs text-muted-foreground mt-1 sm:mt-1.5 leading-relaxed">
                   "Amazing doctor with high skills. Excellent medical services."
                 </p>
-                <div className="text-[11px] text-muted-foreground/70 mt-2">— Google Review</div>
+                <div className="text-[9px] sm:text-[11px] text-muted-foreground/70 mt-1.5 sm:mt-2">— Google Review</div>
               </div>
 
-              <div className="hidden sm:block absolute -top-4 -right-4 rounded-2xl bg-card border border-border shadow-[var(--shadow-soft)] p-3 backdrop-blur">
+              <div className="hidden md:block absolute -top-4 -right-4 rounded-2xl bg-card border border-border shadow-[var(--shadow-soft)] p-3 backdrop-blur">
                 <div className="flex items-center gap-2">
                   <div className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
                   <span className="text-xs font-medium">Open Today</span>
