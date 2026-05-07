@@ -17,7 +17,10 @@ export function Navbar() {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 10);
+    const onScroll = () => {
+      // Very sensitive scroll detection
+      setScrolled(window.scrollY > 5);
+    };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -41,8 +44,8 @@ export function Navbar() {
         className={cn(
           "fixed top-0 left-0 right-0 z-40 transition-all duration-300",
           scrolled
-            ? "bg-white/95 backdrop-blur-md border-b border-border shadow-sm py-2"
-            : "bg-transparent py-4",
+            ? "bg-white border-b border-border shadow-sm py-2"
+            : "bg-white/80 backdrop-blur-md py-4", // Light background even at top
         )}
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -111,8 +114,8 @@ export function Navbar() {
           open ? "translate-x-0" : "translate-x-full",
         )}
       >
-        <div className="flex flex-col h-full">
-          <div className="flex items-center justify-between p-4 border-b border-border">
+        <div className="flex flex-col h-full bg-white">
+          <div className="flex items-center justify-between p-4 border-b border-border bg-white">
             <Link to="/" className="flex items-center gap-2" onClick={() => setOpen(false)}>
               <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-brand to-brand/70 text-brand-foreground shadow-md">
                 <Stethoscope className="h-4 w-4" />
@@ -135,7 +138,7 @@ export function Navbar() {
             </button>
           </div>
 
-          <div className="flex-1 overflow-y-auto py-8 px-4 space-y-8">
+          <div className="flex-1 overflow-y-auto py-8 px-4 space-y-8 bg-white">
             <nav className="flex flex-col gap-2">
               {links.map((l) => (
                 <Link
