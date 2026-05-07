@@ -285,28 +285,30 @@ function Index() {
                 <h2 className="text-3xl sm:text-4xl font-semibold leading-tight">
                   Ready to take the next step toward better health?
                 </h2>
-                <p className="mt-4 text-background/70 leading-relaxed">
+                <p className="mt-4 text-background/90 leading-relaxed">
                   Book a consultation or call us directly — we're here when you need us.
                 </p>
                 <div className="mt-8 flex flex-wrap gap-3">
                   <Button asChild size="lg" className="rounded-full bg-background text-foreground hover:bg-background/90 h-12 px-6">
                     <Link to="/contact">Book Appointment</Link>
                   </Button>
-                  <Button asChild size="lg" variant="outline" className="rounded-full h-12 px-6 border-background/30 text-background hover:bg-background/10 hover:text-background">
-                    <a href="tel:09920881426"><Phone className="mr-2 h-4 w-4" /> 099208 81426</a>
+                  <Button asChild size="lg" variant="outline" className="rounded-full h-12 px-6 border-background/30 text-background hover:bg-background/20 hover:text-background transition-all">
+                    <a href="tel:09920881426" className="flex items-center">
+                      <Phone className="mr-2 h-4 w-4" /> 099208 81426
+                    </a>
                   </Button>
                 </div>
               </div>
               <div className="space-y-4">
-                <div className="flex items-start gap-4 rounded-2xl bg-background/5 backdrop-blur border border-background/10 p-5">
+                <div className="flex items-start gap-4 rounded-2xl bg-background/10 backdrop-blur border border-background/20 p-5">
                   <MapPin className="h-5 w-5 text-mint shrink-0 mt-0.5" />
-                  <div className="text-sm text-background/80 leading-relaxed">
+                  <div className="text-sm text-background font-medium leading-relaxed">
                     First Floor, Chisthiya Heights, 102, Jail Rd S, near Habib Hospital, Dongri, Mumbai 400009
                   </div>
                 </div>
-                <div className="flex items-start gap-4 rounded-2xl bg-background/5 backdrop-blur border border-background/10 p-5">
+                <div className="flex items-start gap-4 rounded-2xl bg-background/10 backdrop-blur border border-background/20 p-5">
                   <Clock className="h-5 w-5 text-mint shrink-0 mt-0.5" />
-                  <div className="text-sm text-background/80 leading-relaxed">
+                  <div className="text-sm text-background font-medium leading-relaxed">
                     Morning 1:00 – 4:00 PM · Evening 8:00 – 10:00 PM<br />
                     Emergency by appointment
                   </div>

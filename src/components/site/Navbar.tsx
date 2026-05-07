@@ -34,18 +34,18 @@ export function Navbar() {
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-18 items-center justify-between py-3">
-          <Link to="/" className="flex items-center gap-3 group">
+          <Link to="/" className="flex items-center gap-2 group sm:gap-3">
             <div className="relative">
               <div className="absolute inset-0 bg-brand/20 blur-lg rounded-full group-hover:bg-brand/30 transition" />
-              <div className="relative flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-brand to-brand/70 text-brand-foreground shadow-[var(--shadow-elegant)]">
-                <Stethoscope className="h-5 w-5" />
+              <div className="relative flex h-9 w-9 sm:h-11 sm:w-11 items-center justify-center rounded-xl sm:rounded-2xl bg-gradient-to-br from-brand to-brand/70 text-brand-foreground shadow-[var(--shadow-elegant)]">
+                <Stethoscope className="h-4 w-4 sm:h-5 sm:w-5" />
               </div>
             </div>
             <div className="leading-tight">
-              <div className="font-display text-base font-semibold text-foreground">
+              <div className="font-display text-sm sm:text-base font-semibold text-foreground">
                 Dr. Mukadam
               </div>
-              <div className="text-[11px] uppercase tracking-widest text-muted-foreground">
+              <div className="hidden xs:block text-[9px] sm:text-[11px] uppercase tracking-widest text-muted-foreground">
                 Multi Speciality Clinic
               </div>
             </div>
