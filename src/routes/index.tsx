@@ -7,7 +7,7 @@ import {
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { SectionHeading } from "@/components/site/SectionHeading";
 import { Button } from "@/components/ui/button";
-import heroImg from "@/assets/hero-clinic.jpg";
+import heroImg from "@/assets/clinic-hero.png";
 
 export const Route = createFileRoute("/")(
   {
@@ -113,15 +113,36 @@ function Index() {
 
             <div className="relative mt-4 lg:mt-0">
               <div className="absolute -inset-4 bg-gradient-to-br from-brand/20 to-mint/20 rounded-[2rem] blur-2xl opacity-60" />
-              <div className="relative rounded-[1.5rem] sm:rounded-[2rem] overflow-hidden shadow-[var(--shadow-elegant)] border border-white/40">
+              <div className="relative rounded-[2rem] overflow-hidden shadow-[var(--shadow-elegant)] border border-white/40">
                 <img
                   src={heroImg}
-                  alt="Modern medical clinic interior"
+                  alt="Exterior view of Dr. Abdul Shakoor Mukadam's clinic"
                   width={1536}
                   height={1024}
-                  className="w-full h-[220px] sm:h-[340px] lg:h-[480px] object-cover"
+                  className="w-full h-[420px] sm:h-[520px] object-cover object-top"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-foreground/30 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-foreground/40 via-transparent to-transparent" />
+              </div>
+
+              <div className="hidden sm:block absolute -top-4 -right-4 rounded-2xl bg-card border border-border shadow-[var(--shadow-soft)] px-2.5 py-2.5 backdrop-blur">
+                <div className="flex items-center gap-2 whitespace-nowrap leading-none">
+                  <span className="h-2.5 w-2.5 rounded-full bg-mint shrink-0" />
+                  <span className="text-[13px] font-medium tracking-[-0.01em] text-foreground">Open Today</span>
+                </div>
+                <div className="mt-1.5 whitespace-nowrap text-[11px] leading-none text-muted-foreground">1-4 PM • 8-10 PM</div>
+              </div>
+
+              <div className="absolute -bottom-6 -left-4 sm:-left-8 max-w-xs rounded-2xl bg-card border border-border shadow-[var(--shadow-soft)] p-4 backdrop-blur">
+                <div className="flex items-center gap-2 text-gold">
+                  {[...Array(5)].map((_, index) => (
+                    <Star key={index} className="h-4 w-4 fill-gold text-gold" />
+                  ))}
+                  <span className="ml-2 text-xl font-semibold text-foreground">5.0</span>
+                </div>
+                <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
+                  "Amazing doctor with high skills. Excellent medical services."
+                </p>
+                <div className="mt-3 text-sm text-muted-foreground">— Google Review</div>
               </div>
             </div>
           </div>
