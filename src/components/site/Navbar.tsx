@@ -108,15 +108,18 @@ export function Navbar() {
         </div>
       </header>
 
-      {/* FULL SCREEN MOBILE MENU */}
+      {/* FULL SCREEN MOBILE MENU — uses inline style to guarantee opaque white background
+          on all mobile browsers (avoids oklch/opacity rendering issues) */}
       <div
         className={cn(
-          "fixed inset-0 z-[100] h-[100dvh] w-screen bg-white lg:hidden transition-[transform,opacity] duration-300 ease-in-out",
-          open ? "translate-x-0 opacity-100 pointer-events-auto" : "translate-x-full opacity-0 pointer-events-none",
+          "fixed inset-0 z-[100] h-[100dvh] w-screen lg:hidden transition-transform duration-300 ease-in-out",
+          open ? "translate-x-0 pointer-events-auto" : "translate-x-full pointer-events-none",
         )}
+        style={{ backgroundColor: "#ffffff" }}
       >
-        <div className="flex flex-col h-full bg-white overflow-hidden">
-          <div className="flex items-center justify-between p-4 border-b border-border bg-white">
+        <div className="flex flex-col h-full overflow-hidden">
+          {/* Mobile menu header */}
+          <div className="flex items-center justify-between p-4 border-b border-gray-100" style={{ backgroundColor: "#ffffff" }}>
             <Link to="/" className="flex items-center gap-2" onClick={() => setOpen(false)}>
               <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-brand to-brand/70 text-brand-foreground shadow-md">
                 <Stethoscope className="h-4 w-4" />
@@ -139,7 +142,8 @@ export function Navbar() {
             </button>
           </div>
 
-          <div className="flex-1 overflow-y-auto py-8 px-4 space-y-8 bg-white">
+          {/* Nav links */}
+          <div className="flex-1 overflow-y-auto py-8 px-4 space-y-8" style={{ backgroundColor: "#ffffff" }}>
             <nav className="flex flex-col gap-2">
               {links.map((l) => (
                 <Link
