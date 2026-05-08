@@ -14,14 +14,13 @@ export const Route = createFileRoute("/")(
   {
     head: () => ({
       meta: [
-        { title: "Dr. Abdul Shakoor Mukadam — Multi Speciality Clinic, Mumbai" },
+        { title: "Dr. Abdul Shakoor Mukadam" },
         {
           name: "description",
-          content:
-            "Trusted multi-speciality care & 24/7 emergency services in Dongri, Mumbai. Led by Dr. Abdul Shakoor Mukadam (MBBS, MD, Harvard CROM 360) with 20+ years of experience.",
+          content: "Trusted multi-speciality care in Dongri, Mumbai.",
         },
-        { property: "og:title", content: "Dr. Abdul Shakoor Mukadam — Multi Speciality Clinic" },
-        { property: "og:description", content: "20+ years of trusted multi-speciality medical care in Mumbai." },
+        { property: "og:title", content: "Dr. Abdul Shakoor Mukadam" },
+        { property: "og:description", content: "Trusted multi-speciality care in Dongri, Mumbai." },
       ],
     }),
     component: Index,

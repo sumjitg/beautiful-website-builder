@@ -7,10 +7,10 @@ import { ShieldCheck, HeartHandshake, Sparkles, Clock, ArrowRight } from "lucide
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About — Dr. Mukadam Multi Speciality Clinic, Mumbai" },
-      { name: "description", content: "A multi-speciality clinic & emergency care centre in Dongri, Mumbai, dedicated to compassionate, evidence-based medicine for over two decades." },
-      { property: "og:title", content: "About — Dr. Mukadam Multi Speciality Clinic" },
-      { property: "og:description", content: "Compassionate, evidence-based medicine in the heart of Mumbai." },
+      { title: "Dr. Abdul Shakoor Mukadam" },
+      { name: "description", content: "About the clinic and care approach." },
+      { property: "og:title", content: "Dr. Abdul Shakoor Mukadam" },
+      { property: "og:description", content: "About the clinic and care approach." },
     ],
   }),
   component: AboutPage,

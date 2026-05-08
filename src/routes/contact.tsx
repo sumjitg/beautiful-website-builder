@@ -10,10 +10,10 @@ import { MapPin, Phone, Clock, Mail, Send, CheckCircle2 } from "lucide-react";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact & Book Appointment — Dr. Mukadam Clinic, Mumbai" },
-      { name: "description", content: "Visit Dr. Mukadam Multi Speciality Clinic at Chisthiya Heights, Dongri, Mumbai 400009. Call 099208 81426 to book an appointment." },
-      { property: "og:title", content: "Contact — Dr. Mukadam Multi Speciality Clinic" },
-      { property: "og:description", content: "Book an appointment or visit our clinic in Dongri, Mumbai." },
+      { title: "Dr. Abdul Shakoor Mukadam" },
+      { name: "description", content: "Contact and appointment details." },
+      { property: "og:title", content: "Dr. Abdul Shakoor Mukadam" },
+      { property: "og:description", content: "Contact and appointment details." },
     ],
   }),
   component: ContactPage,

@@ -10,10 +10,10 @@ import {
 export const Route = createFileRoute("/services")({
   head: () => ({
     meta: [
-      { title: "Services — Multi Speciality Care & Emergency, Mumbai" },
-      { name: "description", content: "Internal medicine, cardiology, diabetology, infectious & tropical medicine, sexual medicine and emergency care — all under one roof in Dongri, Mumbai." },
-      { property: "og:title", content: "Services — Dr. Mukadam Multi Speciality Clinic" },
-      { property: "og:description", content: "Comprehensive multi-speciality medical services in Mumbai." },
+      { title: "Dr. Abdul Shakoor Mukadam" },
+      { name: "description", content: "Clinic services and specialties." },
+      { property: "og:title", content: "Dr. Abdul Shakoor Mukadam" },
+      { property: "og:description", content: "Clinic services and specialties." },
     ],
   }),
   component: ServicesPage,

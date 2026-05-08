@@ -7,10 +7,10 @@ import { GraduationCap, Award, Mic, Stethoscope, CheckCircle2, ArrowRight, Globe
 export const Route = createFileRoute("/doctor")({
   head: () => ({
     meta: [
-      { title: "Dr. Abdul Shakoor Mukadam — Profile, Credentials & Specialties" },
-      { name: "description", content: "Meet Dr. Abdul Shakoor Mukadam — MBBS, MD, Harvard CROM 360, with memberships at the American College of Physicians and Royal College of Physicians, London." },
-      { property: "og:title", content: "Dr. Abdul Shakoor Mukadam — Medical Director" },
-      { property: "og:description", content: "20+ years of medical practice. Internationally trained physician based in Mumbai." },
+      { title: "Dr. Abdul Shakoor Mukadam" },
+      { name: "description", content: "Doctor profile and credentials." },
+      { property: "og:title", content: "Dr. Abdul Shakoor Mukadam" },
+      { property: "og:description", content: "Doctor profile and credentials." },
     ],
   }),
   component: DoctorPage,
