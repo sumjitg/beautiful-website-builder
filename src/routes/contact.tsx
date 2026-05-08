@@ -40,7 +40,7 @@ function ContactPage() {
       </section>
 
       <section className="pb-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-10">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-8 lg:gap-10">
           <div className="space-y-5">
             <ContactCard icon={MapPin} title="Visit us">
               First Floor, Chisthiya Heights, 102, Jail Rd S,<br />
@@ -67,12 +67,12 @@ function ContactPage() {
                 height="280"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                className="w-full"
+                className="h-[240px] sm:h-[280px] w-full"
               />
             </div>
           </div>
 
-          <div className="rounded-3xl border border-border bg-card p-8 shadow-[var(--shadow-elegant)]">
+          <div className="rounded-3xl border border-border bg-card p-6 sm:p-8 shadow-[var(--shadow-elegant)]">
             <h2 className="text-2xl font-semibold">Send us a message</h2>
             <p className="mt-2 text-sm text-muted-foreground">We'll respond within one working day.</p>
 
@@ -135,11 +135,11 @@ function ContactCard({
   children: React.ReactNode;
 }) {
   return (
-    <div className="rounded-3xl border border-border bg-card p-6 shadow-[var(--shadow-soft)] flex gap-4">
+    <div className="rounded-3xl border border-border bg-card p-6 shadow-[var(--shadow-soft)] flex flex-col sm:flex-row gap-4">
       <div className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-brand-soft text-brand shrink-0">
         <Icon className="h-5 w-5" />
       </div>
-      <div>
+      <div className="min-w-0">
         <h3 className="font-semibold">{title}</h3>
         <div className="mt-1 text-foreground/80 leading-relaxed">{children}</div>
       </div>

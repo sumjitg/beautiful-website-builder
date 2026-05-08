@@ -48,7 +48,7 @@ function DoctorPage() {
         <div className="absolute inset-0 -z-10 bg-[var(--gradient-soft)]" />
         <div className="absolute -top-20 -left-20 h-[400px] w-[400px] rounded-full bg-mint/15 blur-3xl -z-10" />
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-5 gap-12 items-center">
+          <div className="grid lg:grid-cols-5 gap-10 lg:gap-12 items-center">
             <div className="lg:col-span-2">
               <div className="relative aspect-[4/5] rounded-[2rem] bg-gradient-to-br from-brand to-mint p-1 shadow-[var(--shadow-elegant)]">
                 <div className="h-full w-full rounded-[1.85rem] bg-card flex flex-col items-center justify-center p-8">
@@ -93,7 +93,7 @@ function DoctorPage() {
       </section>
 
       <section className="py-16 sm:py-24">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-10">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-8 lg:gap-10">
           <div className="rounded-3xl border border-border bg-card p-8 shadow-[var(--shadow-soft)]">
             <div className="flex items-center gap-3">
               <div className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-brand-soft text-brand">

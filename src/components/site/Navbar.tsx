@@ -57,11 +57,11 @@ export function Navbar() {
                   <Stethoscope className="h-4 w-4 sm:h-5 sm:w-5" />
                 </div>
               </div>
-              <div className="leading-tight">
+              <div className="leading-tight min-w-0">
                 <div className="font-display text-sm sm:text-base font-semibold text-foreground">
                   Dr. Mukadam
                 </div>
-                <div className="hidden xs:block text-[9px] sm:text-[11px] uppercase tracking-widest text-muted-foreground">
+                <div className="hidden sm:block text-[9px] sm:text-[11px] uppercase tracking-widest text-muted-foreground">
                   Multi Speciality Clinic
                 </div>
               </div>

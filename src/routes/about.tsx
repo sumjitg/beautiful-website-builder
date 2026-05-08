@@ -45,7 +45,7 @@ function AboutPage() {
       </section>
 
       <section className="py-12">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12 items-center">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-10 lg:gap-12 items-center">
           <div>
             <SectionHeading
               align="left"
@@ -89,7 +89,7 @@ function AboutPage() {
             eyebrow="What we stand for"
             title="The values that guide every consultation"
           />
-          <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {values.map((v) => (
               <div key={v.title} className="rounded-3xl border border-border bg-card p-6 hover:shadow-[var(--shadow-elegant)] transition">
                 <div className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-brand-soft text-brand">

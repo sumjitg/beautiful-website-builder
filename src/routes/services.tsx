@@ -91,7 +91,7 @@ function ServicesPage() {
 
       <section className="pb-20 sm:pb-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {services.map((s) => (
               <div
                 key={s.title}
@@ -120,11 +120,11 @@ function ServicesPage() {
               title="Book a consultation today"
               description="Same-day appointments often available. For emergencies, please call us directly."
             />
-            <div className="mt-8 flex flex-wrap gap-3 justify-center">
-              <Button asChild size="lg" className="rounded-full bg-brand hover:bg-brand/90 text-brand-foreground h-12 px-6">
+            <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
+              <Button asChild size="lg" className="w-full sm:w-auto rounded-full bg-brand hover:bg-brand/90 text-brand-foreground h-12 px-6">
                 <Link to="/contact">Book Appointment <ArrowRight className="ml-1 h-4 w-4" /></Link>
               </Button>
-              <Button asChild size="lg" variant="outline" className="rounded-full h-12 px-6 border-brand/30 text-brand hover:bg-brand-soft/40 hover:text-brand">
+              <Button asChild size="lg" variant="outline" className="w-full sm:w-auto rounded-full h-12 px-6 border-brand/30 text-brand hover:bg-brand-soft/40 hover:text-brand">
                 <a href="tel:09920881426">Call 099208 81426</a>
               </Button>
             </div>

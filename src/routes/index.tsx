@@ -83,38 +83,38 @@ function Index() {
           <div className="absolute -bottom-32 -left-32 h-[500px] w-[500px] rounded-full bg-mint/20 blur-3xl" />
         </div>
 
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-6 pb-20 lg:pt-20 lg:pb-32">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-6 pb-16 sm:pb-20 lg:pt-20 lg:pb-32">
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
             <div>
               <div className="inline-flex items-center gap-2 rounded-full border border-brand/20 bg-white/70 backdrop-blur px-3 py-1.5 text-xs font-medium text-brand shadow-sm">
                 <Award className="h-3.5 w-3.5" />
                 Harvard Medical School Certified
               </div>
-              <h1 className="mt-6 text-4xl sm:text-5xl lg:text-6xl font-semibold text-foreground leading-[1.05]">
+              <h1 className="mt-6 text-3xl sm:text-5xl lg:text-6xl font-semibold text-foreground leading-[1.05]">
                 Trusted multi-speciality care in the{" "}
                 <span className="bg-gradient-to-r from-brand to-mint bg-clip-text text-transparent italic">
                   heart of Mumbai
                 </span>
               </h1>
-              <p className="mt-6 text-lg text-muted-foreground max-w-xl leading-relaxed">
+              <p className="mt-6 text-base sm:text-lg text-muted-foreground max-w-xl leading-relaxed">
                 Led by Dr. Abdul Shakoor Mukadam (MBBS, MD) — over 20 years of experience across
                 internal medicine, cardiology, diabetology and emergency care.
               </p>
 
-              <div className="mt-8 flex flex-wrap gap-3">
-                <Button asChild size="lg" className="rounded-full bg-brand hover:bg-brand/90 text-brand-foreground shadow-[var(--shadow-elegant)] h-12 px-6">
+              <div className="mt-8 flex flex-col sm:flex-row gap-3 sm:items-center">
+                <Button asChild size="lg" className="w-full sm:w-auto rounded-full bg-brand hover:bg-brand/90 text-brand-foreground shadow-[var(--shadow-elegant)] h-12 px-6">
                   <Link to="/contact">
                     Book Appointment <ArrowRight className="ml-1 h-4 w-4" />
                   </Link>
                 </Button>
-                <Button asChild variant="outline" size="lg" className="rounded-full h-12 px-6 border-brand/30 text-brand hover:bg-brand-soft/40 hover:text-brand">
+                <Button asChild variant="outline" size="lg" className="w-full sm:w-auto rounded-full h-12 px-6 border-brand/30 text-brand hover:bg-brand-soft/40 hover:text-brand">
                   <a href="tel:09920881426">
                     <Phone className="mr-2 h-4 w-4" /> Emergency Call
                   </a>
                 </Button>
               </div>
 
-              <div className="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 max-w-lg">
+              <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-6 max-w-lg">
                 {stats.map((s) => (
                   <div key={s.label}>
                     <div className="font-display text-2xl sm:text-3xl font-semibold text-foreground">{s.value}</div>
@@ -132,13 +132,13 @@ function Index() {
                   alt="Modern medical clinic interior with stethoscope on wooden desk"
                   width={1536}
                   height={1024}
-                  className="w-full h-[300px] xs:h-[400px] sm:h-[520px] object-cover"
+                  className="w-full h-[260px] sm:h-[400px] lg:h-[520px] object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-foreground/40 via-transparent to-transparent" />
               </div>
 
               {/* Badges - Hidden on very small screens to avoid 'messy' layout */}
-              <div className="hidden xs:block absolute -bottom-6 -left-4 sm:-left-8 max-w-[200px] sm:max-w-xs rounded-2xl bg-card border border-border shadow-[var(--shadow-soft)] p-3 sm:p-4 backdrop-blur">
+              <div className="hidden sm:block absolute -bottom-6 -left-4 sm:-left-8 max-w-[180px] sm:max-w-xs rounded-2xl bg-card border border-border shadow-[var(--shadow-soft)] p-3 sm:p-4 backdrop-blur">
                 <div className="flex items-center gap-1.5 sm:gap-2">
                   {[...Array(5)].map((_, i) => (
                     <Star key={i} className="h-3 w-3 sm:h-4 sm:w-4 fill-gold text-gold" />
@@ -200,7 +200,7 @@ function Index() {
       {/* DOCTOR PREVIEW */}
       <section className="py-20 sm:py-28 bg-gradient-to-b from-secondary/40 to-background">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-5 gap-12 items-center">
+          <div className="grid lg:grid-cols-5 gap-10 lg:gap-12 items-center">
             <div className="lg:col-span-2">
               <div className="relative aspect-[4/5] rounded-[2rem] bg-gradient-to-br from-brand to-mint p-1 shadow-[var(--shadow-elegant)]">
                 <div className="h-full w-full rounded-[1.85rem] bg-card flex flex-col items-center justify-center p-8">
@@ -251,7 +251,7 @@ function Index() {
             title="What our patients say"
             description="Trusted by thousands across Mumbai with consistently strong ratings on Google, Justdial and Sulekha."
           />
-          <div className="mt-14 grid md:grid-cols-3 gap-6">
+          <div className="mt-14 grid gap-6 md:grid-cols-3">
             {testimonials.map((t, i) => (
               <figure
                 key={i}
@@ -278,12 +278,12 @@ function Index() {
       {/* CTA */}
       <section className="py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="relative overflow-hidden rounded-[2.5rem] bg-foreground text-background p-10 sm:p-16 shadow-[var(--shadow-elegant)]">
+            <div className="relative overflow-hidden rounded-[2.5rem] bg-foreground text-background p-8 sm:p-10 md:p-16 shadow-[var(--shadow-elegant)]">
             <div className="absolute -top-32 -right-32 h-96 w-96 rounded-full bg-brand/30 blur-3xl" />
             <div className="absolute -bottom-32 -left-32 h-96 w-96 rounded-full bg-mint/20 blur-3xl" />
-            <div className="relative grid md:grid-cols-2 gap-10 items-center">
+            <div className="relative grid gap-8 md:grid-cols-2 md:gap-10 items-center">
               <div>
-                <h2 className="text-3xl sm:text-4xl font-semibold leading-tight">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold leading-tight">
                   Ready to take the next step toward better health?
                 </h2>
                 <p className="mt-4 text-background/90 leading-relaxed">
