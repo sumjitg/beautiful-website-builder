@@ -42,7 +42,7 @@ export function Navbar() {
     <>
       <header
         className={cn(
-          "fixed top-0 left-0 right-0 z-40 transition-all duration-300",
+          "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
           scrolled
             ? "bg-white border-b border-border shadow-sm py-2"
             : "bg-white/80 backdrop-blur-md py-4", // Light background even at top
@@ -110,11 +110,11 @@ export function Navbar() {
       {/* FULL SCREEN MOBILE MENU */}
       <div
         className={cn(
-          "fixed inset-0 z-[60] bg-white lg:hidden transition-transform duration-300 ease-in-out",
-          open ? "translate-x-0" : "translate-x-full",
+          "fixed inset-0 z-[100] h-[100dvh] w-screen bg-white lg:hidden transition-[transform,opacity] duration-300 ease-in-out",
+          open ? "translate-x-0 opacity-100 pointer-events-auto" : "translate-x-full opacity-0 pointer-events-none",
         )}
       >
-        <div className="flex flex-col h-full bg-white">
+        <div className="flex flex-col h-full bg-white overflow-hidden">
           <div className="flex items-center justify-between p-4 border-b border-border bg-white">
             <Link to="/" className="flex items-center gap-2" onClick={() => setOpen(false)}>
               <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-brand to-brand/70 text-brand-foreground shadow-md">
