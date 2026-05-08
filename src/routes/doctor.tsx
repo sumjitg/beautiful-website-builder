@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { Button } from "@/components/ui/button";
+import doctorImg from "@/assets/doctor-profile.png";
 import { GraduationCap, Award, Mic, Stethoscope, CheckCircle2, ArrowRight, Globe2 } from "lucide-react";
 
 export const Route = createFileRoute("/doctor")({
@@ -52,9 +53,15 @@ function DoctorPage() {
             {/* Doctor card */}
             <div className="lg:col-span-2 max-w-[280px] mx-auto w-full lg:max-w-none">
               <div className="relative aspect-[4/5] rounded-[1.5rem] sm:rounded-[2rem] bg-gradient-to-br from-brand to-mint p-1 shadow-[var(--shadow-elegant)]">
-                <div className="h-full w-full rounded-[1.35rem] sm:rounded-[1.85rem] bg-card flex flex-col items-center justify-center p-6 sm:p-8">
-                  <div className="h-24 w-24 sm:h-32 sm:w-32 rounded-full bg-gradient-to-br from-brand to-mint flex items-center justify-center text-brand-foreground font-display text-3xl sm:text-5xl font-semibold shadow-inner">
-                    AM
+                <div className="h-full w-full rounded-[1.35rem] sm:rounded-[1.85rem] bg-card flex flex-col p-4 sm:p-5">
+                  <div className="w-full overflow-hidden rounded-[1.2rem] sm:rounded-[1.5rem] border border-white/60 shadow-[var(--shadow-soft)]">
+                    <img
+                      src={doctorImg}
+                      alt="Portrait of Dr. Abdul Shakoor Mukadam"
+                      width={818}
+                      height={593}
+                      className="h-[260px] sm:h-[320px] w-full object-cover object-top"
+                    />
                   </div>
                   <div className="mt-5 text-center">
                     <div className="font-display text-xl sm:text-2xl font-semibold">Dr. Abdul Shakoor</div>
