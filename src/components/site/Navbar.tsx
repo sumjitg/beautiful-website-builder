@@ -1,7 +1,8 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { Menu, Phone, Stethoscope, X, ArrowRight } from "lucide-react";
+import { Menu, Phone, X, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
+import doctorIcon from "@/assets/favicon-doctor.png";
 
 const links = [
   { to: "/", label: "Home" },
@@ -59,11 +60,14 @@ export function Navbar() {
           <div className="flex items-center justify-between h-12">
             {/* Logo */}
             <Link to="/" className="flex items-center gap-2.5 group">
-              <div className="relative">
-                <div className="absolute inset-0 bg-brand/20 blur-md rounded-full transition group-hover:bg-brand/30" />
-                <div className="relative flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-xl bg-gradient-to-br from-brand to-brand/70 text-brand-foreground shadow-md">
-                  <Stethoscope className="h-4 w-4 sm:h-5 sm:w-5" />
-                </div>
+              <div className="relative overflow-hidden rounded-xl shadow-md ring-1 ring-brand/10">
+                <img
+                  src={doctorIcon}
+                  alt="Dr. Abdul Shakoor Mukadam"
+                  width={40}
+                  height={40}
+                  className="h-9 w-9 sm:h-10 sm:w-10 object-cover object-top"
+                />
               </div>
               <div className="leading-tight">
                 <div className="font-display text-sm sm:text-base font-semibold text-foreground">Dr. Mukadam</div>
@@ -162,9 +166,13 @@ export function Navbar() {
         {/* Header row */}
         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "16px 20px", borderBottom: "1px solid #e4eeed", flexShrink: 0, backgroundColor: "#ffffff" }}>
           <Link to="/" onClick={() => setOpen(false)} style={{ display: "flex", alignItems: "center", gap: 10, textDecoration: "none" }}>
-            <div style={{ width: 40, height: 40, borderRadius: 12, background: "linear-gradient(135deg,#2d7d72,#3da392)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-              <Stethoscope style={{ width: 18, height: 18, color: "#fff" }} />
-            </div>
+            <img
+              src={doctorIcon}
+              alt="Dr. Abdul Shakoor Mukadam"
+              width={40}
+              height={40}
+              style={{ width: 40, height: 40, borderRadius: 12, objectFit: "cover", objectPosition: "top", flexShrink: 0 }}
+            />
             <div>
               <div style={{ fontSize: 14, fontWeight: 600, color: "#1a2e2c", lineHeight: 1.3 }}>Dr. Mukadam</div>
               <div style={{ fontSize: 9, letterSpacing: "0.13em", textTransform: "uppercase", color: "#5a8a85", marginTop: 2 }}>Multi Speciality Clinic</div>
