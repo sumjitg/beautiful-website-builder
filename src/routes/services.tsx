@@ -73,39 +73,39 @@ const services = [
 function ServicesPage() {
   return (
     <SiteLayout>
-      <section className="relative py-20 sm:py-28 overflow-hidden">
+      <section className="relative py-16 sm:py-24 overflow-hidden">
         <div className="absolute inset-0 -z-10 bg-[var(--gradient-soft)]" />
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
           <div className="inline-flex items-center gap-2 rounded-full border border-brand/20 bg-brand-soft/40 px-3 py-1 text-xs font-medium uppercase tracking-widest text-brand">
             Our Services
           </div>
-          <h1 className="mt-5 text-4xl sm:text-5xl lg:text-6xl font-semibold leading-tight">
+          <h1 className="mt-5 text-3xl sm:text-4xl lg:text-5xl font-semibold leading-tight">
             Comprehensive medical care, all under one roof
           </h1>
-          <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
+          <p className="mt-5 text-base sm:text-lg text-muted-foreground leading-relaxed">
             From routine consultations to specialty care across multiple disciplines and round-the-clock
             emergency support — our clinic is equipped for every step of your health journey.
           </p>
         </div>
       </section>
 
-      <section className="pb-20 sm:pb-28">
+      <section className="pb-16 sm:pb-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-4 sm:gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
             {services.map((s) => (
               <div
                 key={s.title}
-                className="group relative rounded-3xl border border-border bg-card p-7 hover:border-brand/30 hover:shadow-[var(--shadow-elegant)] transition-all duration-300"
+                className="group relative rounded-2xl sm:rounded-3xl border border-border bg-card p-5 sm:p-7 hover:border-brand/30 hover:shadow-[var(--shadow-elegant)] transition-all duration-300"
               >
-                <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-brand to-brand/70 text-brand-foreground shadow-[var(--shadow-soft)]">
+                <div className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-brand to-brand/70 text-brand-foreground shadow-[var(--shadow-soft)]">
                   <s.icon className="h-5 w-5" />
                 </div>
-                <h3 className="mt-5 text-xl font-semibold">{s.title}</h3>
+                <h3 className="mt-4 text-lg sm:text-xl font-semibold">{s.title}</h3>
                 <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
-                <ul className="mt-5 space-y-2">
+                <ul className="mt-4 space-y-2">
                   {s.items.map((it) => (
                     <li key={it} className="flex items-center gap-2 text-sm text-foreground/80">
-                      <span className="h-1.5 w-1.5 rounded-full bg-brand" />
+                      <span className="h-1.5 w-1.5 rounded-full bg-brand flex-shrink-0" />
                       {it}
                     </li>
                   ))}
@@ -114,13 +114,13 @@ function ServicesPage() {
             ))}
           </div>
 
-          <div className="mt-16">
+          <div className="mt-14 sm:mt-16">
             <SectionHeading
               eyebrow="Ready when you are"
               title="Book a consultation today"
               description="Same-day appointments often available. For emergencies, please call us directly."
             />
-            <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
+            <div className="mt-6 flex flex-col sm:flex-row gap-3 justify-center">
               <Button asChild size="lg" className="w-full sm:w-auto rounded-full bg-brand hover:bg-brand/90 text-brand-foreground h-12 px-6">
                 <Link to="/contact">Book Appointment <ArrowRight className="ml-1 h-4 w-4" /></Link>
               </Button>
