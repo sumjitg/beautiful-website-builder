@@ -42,10 +42,10 @@ export function Navbar() {
     <>
       <header
         className={cn(
-          "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-          scrolled
-            ? "bg-white border-b border-border shadow-sm py-2"
-            : "bg-white/80 backdrop-blur-md py-4", // Light background even at top
+          "fixed top-0 left-0 right-0 z-50 border-b border-border bg-white/95 py-2 shadow-sm backdrop-blur-md transition-all duration-300",
+          scrolled || open
+            ? "lg:bg-white lg:border-border lg:shadow-sm lg:py-2"
+            : "lg:border-transparent lg:bg-white/80 lg:py-4 lg:shadow-none",
         )}
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -97,9 +97,10 @@ export function Navbar() {
 
             {/* MOBILE TOGGLE */}
             <button
-              className="lg:hidden p-2 rounded-xl bg-muted/50 hover:bg-muted transition-colors"
+              className="lg:hidden rounded-xl border border-border bg-white p-2 shadow-sm transition-colors hover:bg-muted"
               onClick={() => setOpen(true)}
               aria-label="Open menu"
+              aria-expanded={open}
             >
               <Menu className="h-5 w-5" />
             </button>
