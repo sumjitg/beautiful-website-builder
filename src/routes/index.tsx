@@ -94,7 +94,7 @@ function Index() {
                     Book Appointment <ArrowRight className="ml-1 h-4 w-4" />
                   </Link>
                 </Button>
-                <Button asChild variant="outline" size="lg" className="w-full sm:w-auto rounded-full h-12 px-6 border-brand/30 text-brand hover:bg-brand-soft/40 hover:text-brand">
+                <Button asChild variant="outline" size="lg" className="w-full sm:w-auto rounded-full h-12 px-6 bg-transparent border-brand/40 text-brand hover:bg-brand-soft/60 hover:text-brand">
                   <a href="tel:09920881426">
                     <Phone className="mr-2 h-4 w-4" /> Emergency Call
                   </a>
@@ -258,7 +258,7 @@ function Index() {
                   <Button asChild size="lg" className="w-full sm:w-auto rounded-full bg-background text-foreground hover:bg-background/90 h-12 px-6">
                     <Link to="/contact">Book Appointment</Link>
                   </Button>
-                  <Button asChild size="lg" variant="outline" className="w-full sm:w-auto rounded-full h-12 px-6 border-background/30 text-background hover:bg-background/20 hover:text-background">
+                  <Button asChild size="lg" variant="outline" className="w-full sm:w-auto rounded-full h-12 px-6 bg-transparent border-background/40 text-background hover:bg-background/15 hover:text-background">
                     <a href="tel:09920881426" className="flex items-center">
                       <Phone className="mr-2 h-4 w-4" /> 099208 81426
                     </a>
