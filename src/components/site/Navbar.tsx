@@ -1,6 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
-import { createPortal } from "react-dom";
+import { useEffect, useRef, useState } from "react";
 import { Menu, Phone, Stethoscope, X, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -12,206 +11,10 @@ const links = [
   { to: "/contact", label: "Contact" },
 ] as const;
 
-/** Mobile drawer rendered via React Portal directly on document.body.
- *  This completely escapes all CSS stacking contexts (overflow-clip, transform,
- *  backdrop-filter, etc.) that would otherwise trap fixed positioning. */
-function MobileMenuPortal({
-  open,
-  onClose,
-}: {
-  open: boolean;
-  onClose: () => void;
-}) {
-  // Only render in browser
-  if (typeof document === "undefined") return null;
-
-  return createPortal(
-    <>
-      {/* Backdrop */}
-      <div
-        aria-hidden="true"
-        onClick={onClose}
-        style={{
-          position: "fixed",
-          inset: 0,
-          zIndex: 9998,
-          background: "rgba(0,0,0,0.35)",
-          opacity: open ? 1 : 0,
-          pointerEvents: open ? "auto" : "none",
-          transition: "opacity 0.25s ease",
-        }}
-      />
-
-      {/* Drawer panel */}
-      <div
-        role="dialog"
-        aria-modal="true"
-        aria-label="Navigation menu"
-        style={{
-          position: "fixed",
-          top: 0,
-          left: 0,
-          bottom: 0,
-          width: "100%",
-          maxWidth: "340px",
-          zIndex: 9999,
-          background: "#ffffff",
-          display: "flex",
-          flexDirection: "column",
-          boxShadow: "4px 0 32px rgba(0,0,0,0.12)",
-          transform: open ? "translateX(0)" : "translateX(-100%)",
-          transition: "transform 0.28s cubic-bezier(0.4, 0, 0.2, 1)",
-          overflowY: "auto",
-          WebkitOverflowScrolling: "touch",
-        }}
-      >
-        {/* Header */}
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            padding: "16px 20px",
-            borderBottom: "1px solid #e8f0ef",
-            background: "#ffffff",
-          }}
-        >
-          <Link
-            to="/"
-            onClick={onClose}
-            style={{ display: "flex", alignItems: "center", gap: "10px", textDecoration: "none" }}
-          >
-            <div
-              style={{
-                width: 40,
-                height: 40,
-                borderRadius: 12,
-                background: "linear-gradient(135deg, #2d7d72 0%, #3da392 100%)",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                flexShrink: 0,
-              }}
-            >
-              <Stethoscope style={{ width: 18, height: 18, color: "#fff" }} />
-            </div>
-            <div>
-              <div style={{ fontWeight: 600, fontSize: 14, color: "#1a2e2c", lineHeight: 1.2 }}>
-                Dr. Mukadam
-              </div>
-              <div style={{ fontSize: 9, letterSpacing: "0.12em", textTransform: "uppercase", color: "#6b8f8a", marginTop: 2 }}>
-                Multi Speciality Clinic
-              </div>
-            </div>
-          </Link>
-
-          <button
-            onClick={onClose}
-            aria-label="Close menu"
-            style={{
-              width: 36,
-              height: 36,
-              borderRadius: 10,
-              border: "1px solid #e8f0ef",
-              background: "#f5f9f8",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              cursor: "pointer",
-              flexShrink: 0,
-            }}
-          >
-            <X style={{ width: 18, height: 18, color: "#1a2e2c" }} />
-          </button>
-        </div>
-
-        {/* Nav links */}
-        <nav style={{ padding: "24px 12px 0", flex: 1 }}>
-          {links.map((l) => (
-            <Link
-              key={l.to}
-              to={l.to}
-              onClick={onClose}
-              activeProps={{
-                style: {
-                  color: "#2d7d72",
-                  background: "#e8f5f2",
-                  fontWeight: 700,
-                },
-              }}
-              activeOptions={{ exact: l.to === "/" }}
-              style={{
-                display: "block",
-                padding: "14px 16px",
-                borderRadius: 14,
-                marginBottom: 4,
-                fontSize: 18,
-                fontWeight: 500,
-                color: "#2a3d3b",
-                textDecoration: "none",
-                transition: "background 0.15s",
-              }}
-            >
-              {l.label}
-            </Link>
-          ))}
-        </nav>
-
-        {/* Bottom CTAs */}
-        <div style={{ padding: "24px 20px 32px", borderTop: "1px solid #e8f0ef", marginTop: "auto" }}>
-          <a
-            href="tel:09920881426"
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              gap: 10,
-              padding: "14px 20px",
-              borderRadius: 16,
-              background: "#edf7f5",
-              border: "1px solid #b8ddd8",
-              color: "#2d7d72",
-              fontWeight: 600,
-              fontSize: 16,
-              textDecoration: "none",
-              marginBottom: 12,
-            }}
-          >
-            <Phone style={{ width: 18, height: 18 }} />
-            099208 81426
-          </a>
-
-          <Link
-            to="/contact"
-            onClick={onClose}
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              gap: 8,
-              padding: "14px 20px",
-              borderRadius: 16,
-              background: "linear-gradient(135deg, #2d7d72 0%, #3da392 100%)",
-              color: "#ffffff",
-              fontWeight: 600,
-              fontSize: 16,
-              textDecoration: "none",
-              boxShadow: "0 4px 16px rgba(45,125,114,0.35)",
-            }}
-          >
-            Book Appointment
-            <ArrowRight style={{ width: 16, height: 16 }} />
-          </Link>
-        </div>
-      </div>
-    </>,
-    document.body
-  );
-}
-
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const dialogRef = useRef<HTMLDialogElement>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -220,31 +23,47 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Lock body scroll when menu is open
+  // Use native <dialog> to open/close — it auto-escapes all stacking contexts
   useEffect(() => {
-    document.body.style.overflow = open ? "hidden" : "";
-    return () => { document.body.style.overflow = ""; };
+    const dialog = dialogRef.current;
+    if (!dialog) return;
+    if (open) {
+      dialog.showModal();
+      document.body.style.overflow = "hidden";
+    } else {
+      dialog.close();
+      document.body.style.overflow = "";
+    }
   }, [open]);
 
-  // Close on Escape
+  // Close on backdrop click or Escape
   useEffect(() => {
-    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") setOpen(false); };
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
+    const dialog = dialogRef.current;
+    if (!dialog) return;
+    const onClose = () => setOpen(false);
+    const onCancel = (e: Event) => { e.preventDefault(); setOpen(false); };
+    dialog.addEventListener("close", onClose);
+    dialog.addEventListener("cancel", onCancel);
+    return () => {
+      dialog.removeEventListener("close", onClose);
+      dialog.removeEventListener("cancel", onCancel);
+    };
   }, []);
 
   return (
     <>
+      {/* ─── TOP NAVBAR ─── */}
       <header
         className={cn(
           "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
           scrolled
-            ? "bg-white/98 border-b border-border shadow-sm py-2 backdrop-blur-sm"
-            : "bg-white/80 border-b border-transparent py-3 backdrop-blur-sm"
+            ? "bg-white border-b border-gray-100 shadow-sm py-2"
+            : "bg-white/90 border-b border-transparent py-3"
         )}
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
+
             {/* Logo */}
             <Link to="/" className="flex items-center gap-2.5 group">
               <div className="relative">
@@ -297,20 +116,211 @@ export function Navbar() {
 
             {/* Mobile hamburger */}
             <button
-              className="lg:hidden flex items-center justify-center w-10 h-10 rounded-xl border border-border bg-white shadow-sm hover:bg-muted transition-colors"
+              className="lg:hidden flex items-center justify-center w-10 h-10 rounded-xl border border-gray-200 bg-white shadow-sm hover:bg-gray-50 transition-colors"
               onClick={() => setOpen(true)}
-              aria-label="Open menu"
-              aria-expanded={open}
-              aria-controls="mobile-nav"
+              aria-label="Open navigation menu"
+              aria-haspopup="dialog"
             >
-              <Menu className="h-5 w-5 text-foreground" />
+              <Menu className="h-5 w-5 text-gray-700" />
             </button>
           </div>
         </div>
       </header>
 
-      {/* Portal-based mobile menu — renders on document.body, escapes all stacking contexts */}
-      <MobileMenuPortal open={open} onClose={() => setOpen(false)} />
+      {/* ─── MOBILE MENU using native <dialog> ─── */}
+      {/* The native dialog element renders in the top-layer — above ALL stacking contexts */}
+      <style>{`
+        dialog#mobile-nav {
+          padding: 0;
+          margin: 0;
+          border: none;
+          outline: none;
+          background: transparent;
+          width: 100vw;
+          max-width: 100vw;
+          height: 100dvh;
+          max-height: 100dvh;
+        }
+        dialog#mobile-nav::backdrop {
+          background: rgba(0, 0, 0, 0.45);
+        }
+        dialog#mobile-nav[open] {
+          display: flex;
+        }
+      `}</style>
+
+      <dialog
+        id="mobile-nav"
+        ref={dialogRef}
+        onClick={(e) => {
+          // Close when clicking the backdrop area (outside the panel)
+          if (e.target === dialogRef.current) setOpen(false);
+        }}
+      >
+        {/* Slide-in panel */}
+        <div
+          style={{
+            width: "100%",
+            maxWidth: 360,
+            height: "100%",
+            backgroundColor: "#ffffff",
+            display: "flex",
+            flexDirection: "column",
+            boxShadow: "2px 0 24px rgba(0,0,0,0.15)",
+            transform: open ? "translateX(0)" : "translateX(-100%)",
+            transition: "transform 0.28s cubic-bezier(0.4, 0, 0.2, 1)",
+            overflowY: "auto",
+          }}
+        >
+          {/* Panel header */}
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+              padding: "16px 20px",
+              borderBottom: "1px solid #e8eeed",
+              backgroundColor: "#ffffff",
+              flexShrink: 0,
+            }}
+          >
+            <Link
+              to="/"
+              onClick={() => setOpen(false)}
+              style={{ display: "flex", alignItems: "center", gap: 10, textDecoration: "none" }}
+            >
+              <div
+                style={{
+                  width: 40,
+                  height: 40,
+                  borderRadius: 12,
+                  background: "linear-gradient(135deg, #2d7d72, #3da392)",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  flexShrink: 0,
+                }}
+              >
+                <Stethoscope style={{ width: 18, height: 18, color: "#fff" }} />
+              </div>
+              <div>
+                <div style={{ fontSize: 14, fontWeight: 600, color: "#1a2e2c", lineHeight: 1.2 }}>
+                  Dr. Mukadam
+                </div>
+                <div style={{ fontSize: 9, letterSpacing: "0.12em", textTransform: "uppercase", color: "#6b8f8a", marginTop: 2 }}>
+                  Multi Speciality Clinic
+                </div>
+              </div>
+            </Link>
+
+            <button
+              onClick={() => setOpen(false)}
+              aria-label="Close menu"
+              style={{
+                width: 36,
+                height: 36,
+                borderRadius: 10,
+                border: "1px solid #e8eeed",
+                backgroundColor: "#f5f9f8",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                cursor: "pointer",
+                flexShrink: 0,
+              }}
+            >
+              <X style={{ width: 18, height: 18, color: "#1a2e2c" }} />
+            </button>
+          </div>
+
+          {/* Nav links */}
+          <nav style={{ padding: "20px 12px 0", flex: 1 }}>
+            {links.map((l) => (
+              <Link
+                key={l.to}
+                to={l.to}
+                onClick={() => setOpen(false)}
+                activeProps={{
+                  style: {
+                    backgroundColor: "#e6f4f1",
+                    color: "#2d7d72",
+                    fontWeight: 700,
+                  },
+                }}
+                activeOptions={{ exact: l.to === "/" }}
+                style={{
+                  display: "block",
+                  padding: "15px 18px",
+                  borderRadius: 14,
+                  marginBottom: 4,
+                  fontSize: 17,
+                  fontWeight: 500,
+                  color: "#2a3d3b",
+                  textDecoration: "none",
+                  backgroundColor: "transparent",
+                  transition: "background-color 0.15s",
+                }}
+              >
+                {l.label}
+              </Link>
+            ))}
+          </nav>
+
+          {/* Bottom CTAs */}
+          <div
+            style={{
+              padding: "20px 20px 36px",
+              borderTop: "1px solid #e8eeed",
+              backgroundColor: "#ffffff",
+              flexShrink: 0,
+            }}
+          >
+            <a
+              href="tel:09920881426"
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                gap: 10,
+                padding: "14px 20px",
+                borderRadius: 14,
+                backgroundColor: "#edf7f5",
+                border: "1px solid #b8ddd8",
+                color: "#2d7d72",
+                fontWeight: 600,
+                fontSize: 15,
+                textDecoration: "none",
+                marginBottom: 10,
+              }}
+            >
+              <Phone style={{ width: 17, height: 17 }} />
+              099208 81426
+            </a>
+
+            <Link
+              to="/contact"
+              onClick={() => setOpen(false)}
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                gap: 8,
+                padding: "14px 20px",
+                borderRadius: 14,
+                background: "linear-gradient(135deg, #2d7d72, #3da392)",
+                color: "#ffffff",
+                fontWeight: 600,
+                fontSize: 15,
+                textDecoration: "none",
+                boxShadow: "0 4px 14px rgba(45,125,114,0.4)",
+              }}
+            >
+              Book Appointment
+              <ArrowRight style={{ width: 16, height: 16 }} />
+            </Link>
+          </div>
+        </div>
+      </dialog>
     </>
   );
 }
